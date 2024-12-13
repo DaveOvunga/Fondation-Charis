@@ -1,0 +1,131 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("../../assets/fonts/flaticon.ttf?4f7700d6618cd0ef11fa9dc7cf3a6fc7") format("truetype"),
+url("../../assets/fonts/flaticon.woff?4f7700d6618cd0ef11fa9dc7cf3a6fc7") format("woff"),
+url("../../assets/fonts/flaticon.woff2?4f7700d6618cd0ef11fa9dc7cf3a6fc7") format("woff2"),
+url("../../assets/fonts/flaticon.eot?4f7700d6618cd0ef11fa9dc7cf3a6fc7#iefix") format("embedded-opentype"),
+url("../../assets/fonts/flaticon.svg?4f7700d6618cd0ef11fa9dc7cf3a6fc7#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-patient:before {
+    content: "\f101";
+}
+.flaticon-examination:before {
+    content: "\f102";
+}
+.flaticon-doctor:before {
+    content: "\f103";
+}
+.flaticon-syringe:before {
+    content: "\f104";
+}
+.flaticon-doctor-1:before {
+    content: "\f105";
+}
+.flaticon-linkedin:before {
+    content: "\f106";
+}
+.flaticon-healthcare:before {
+    content: "\f107";
+}
+.flaticon-dentist:before {
+    content: "\f108";
+}
+.flaticon-nephrologist:before {
+    content: "\f109";
+}
+.flaticon-quotes:before {
+    content: "\f10a";
+}
+.flaticon-orthopedic:before {
+    content: "\f10b";
+}
+.flaticon-medical-checkup:before {
+    content: "\f10c";
+}
+.flaticon-expert:before {
+    content: "\f10d";
+}
+.flaticon-medical-team:before {
+    content: "\f10e";
+}
+.flaticon-badge:before {
+    content: "\f10f";
+}
+.flaticon-data-virtualization:before {
+    content: "\f110";
+}
+.flaticon-electric-meter:before {
+    content: "\f111";
+}
+.flaticon-medical-app:before {
+    content: "\f112";
+}
+.flaticon-medical-checkup-1:before {
+    content: "\f113";
+}
+.flaticon-hospital:before {
+    content: "\f114";
+}
+.flaticon-home:before {
+    content: "\f115";
+}
+.flaticon-play-button-arrowhead:before {
+    content: "\f116";
+}
+.flaticon-phone-call:before {
+    content: "\f117";
+}
+.flaticon-left-arrow:before {
+    content: "\f118";
+}
+.flaticon-right-arrow:before {
+    content: "\f119";
+}
+.flaticon-inspiration:before {
+    content: "\f11a";
+}
+.flaticon-left-arrow-1:before {
+    content: "\f11b";
+}
+.flaticon-right-arrow-1:before {
+    content: "\f11c";
+}
+.flaticon-facebook-app-symbol:before {
+    content: "\f11d";
+}
+.flaticon-twitter:before {
+    content: "\f11e";
+}
+.flaticon-stethoscope:before {
+    content: "\f11f";
+}
+.flaticon-phone-call-1:before {
+    content: "\f120";
+}
+.flaticon-doctor-2:before {
+    content: "\f121";
+}
+.flaticon-instagram:before {
+    content: "\f122";
+}
+.flaticon-dentist-1:before {
+    content: "\f123";
+}
+.flaticon-medical-symbol:before {
+    content: "\f124";
+}
+.flaticon-google-plus:before {
+    content: "\f125";
+}

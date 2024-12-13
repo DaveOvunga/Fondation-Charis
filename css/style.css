@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+.upload-container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(169, 169, 226, 0.582);
+}
+.upload-container .upload{
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    padding: 40px 20px;
+    border: 1px solid rgb(145, 145, 228);
+    border-radius: 10px;
+    box-shadow: -1px 3px 11px -5px rgba(0,0,0,1);
+-webkit-box-shadow: -1px 3px 11px -5px rgba(0,0,0,1);
+-moz-box-shadow: -1px 3px 11px -5px rgba(0,0,0,1);
+}
+.upload-container .upload .text{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.upload-container .upload .text h4{
+    font-size: 22px;
+    color: rgb(58, 57, 57);
+}
+.upload-container .upload .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border: 1px dashed rgb(66, 66, 238);
+}
+.upload-container .upload button{
+    padding: 10px 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(66, 66, 238);
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.upload-container .upload button:hover{
+    transition: .2s ease;
+    background-color: rgb(23, 23, 248);
+}
+.form input[type=file]{
+    margin-bottom: 10px;
+}
+.form input[type=text]{
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid rgb(143, 143, 143);
+    outline: none;
+    font-size: 13px;
+    margin: 8px 0;
+}
+.form input[type=text]:focus-within{
+    transition: .1s ease;
+    border: 1px solid rgb(132, 132, 247);
+}
+
+/*video player*/
+.video-container{
+    width: 100%;
+    background-color: #1F1D2B;
+}
+.video-content{
+    padding: 10px;
+    border: 1px solid rgb(102, 100, 100);
+    margin: 0 40px;
+}
+.video-content .vid-player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-content .vid-text{
+    text-align: center;
+}
+.video-content .vid-text h1{
+    color: white;
+    font-size: 22px;
+    margin: 10px 0 14px 0;
+}
+.video-content .vid-text p{
+    color: rgb(139, 139, 139);
+    padding: 0 60px;
+    font-size: 12px;
+}
