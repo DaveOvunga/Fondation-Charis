@@ -18,16 +18,15 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 final class Cursor
 {
-    /** @var resource */
+    private $output;
     private $input;
 
     /**
      * @param resource|null $input
      */
-    public function __construct(
-        private OutputInterface $output,
-        $input = null,
-    ) {
+    public function __construct(OutputInterface $output, $input = null)
+    {
+        $this->output = $output;
         $this->input = $input ?? (\defined('STDIN') ? \STDIN : fopen('php://input', 'r+'));
     }
 
@@ -184,7 +183,11 @@ final class Cursor
     {
         static $isTtySupported;
 
-        if (!$isTtySupported ??= '/' === \DIRECTORY_SEPARATOR && stream_isatty(\STDOUT)) {
+        if (null === $isTtySupported && \function_exists('proc_open')) {
+            $isTtySupported = (bool) @proc_open('echo 1 >/dev/null', [['file', '/dev/tty', 'r'], ['file', '/dev/tty', 'w'], ['file', '/dev/tty', 'w']], $pipes);
+        }
+
+        if (!$isTtySupported) {
             return [1, 1];
         }
 

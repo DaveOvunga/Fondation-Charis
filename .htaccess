@@ -1,0 +1,20 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+
+
+# RewriteEngine On
+# RewriteBase /E-learning/
+
+# # Redirect to the public directory
+# RewriteRule ^$ public/index.php [L]
+# RewriteRule ^(.*)$ public/$1 [L]
+
+# # Handle .php extension removal
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L]

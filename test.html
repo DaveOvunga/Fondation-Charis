@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimeo Video Example</title>
+    <style>
+        #nextButton {
+            display: none; /* Initially hide the "Next Video" button */
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Embed Vimeo Video -->
+    <div class="iframe-container border-0">
+        <iframe id="vimeo-iframe" class="border-0 bg-info" src="https://player.vimeo.com/video/1017735907" allowfullscreen></iframe>
+    </div>
+
+    <!-- Next Video Button -->
+    <button id="nextButton" onclick="nextVideo()">Next Video</button>
+
+    <!-- Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <script>
+        // Grab the iframe element and create a Vimeo player instance
+        var iframe = document.querySelector('#vimeo-iframe');
+        var player = new Vimeo.Player(iframe);
+        var nextChapterBtn = document.querySelector('#nextChapBtn');
+
+        // When the video ends, show the "Next Video" button
+        player.on('ended', function() {
+            document.getElementById('nextButton').style.display = 'block'; // Show the button
+        });
+
+        // Next video button click handler
+        function nextVideo() {
+            alert("Next video will play now!"); // Replace with your logic to load the next video
+            // You can load another video like this:
+            // player.loadVideo('next_video_id'); // Replace 'next_video_id' with the next video ID
+
+            document.getElementById('nextButton').style.display = 'none'; // Hide the button again
+        }
+    </script>
+
+</body>
+</html>

@@ -24,12 +24,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class ErrorListener implements EventSubscriberInterface
 {
-    public function __construct(
-        private ?LoggerInterface $logger = null,
-    ) {
+    private $logger;
+
+    public function __construct(LoggerInterface $logger = null)
+    {
+        $this->logger = $logger;
     }
 
-    public function onConsoleError(ConsoleErrorEvent $event): void
+    public function onConsoleError(ConsoleErrorEvent $event)
     {
         if (null === $this->logger) {
             return;
@@ -46,7 +48,7 @@ class ErrorListener implements EventSubscriberInterface
         $this->logger->critical('Error thrown while running command "{command}". Message: "{message}"', ['exception' => $error, 'command' => $inputString, 'message' => $error->getMessage()]);
     }
 
-    public function onConsoleTerminate(ConsoleTerminateEvent $event): void
+    public function onConsoleTerminate(ConsoleTerminateEvent $event)
     {
         if (null === $this->logger) {
             return;
@@ -77,7 +79,7 @@ class ErrorListener implements EventSubscriberInterface
 
     private static function getInputString(ConsoleEvent $event): ?string
     {
-        $commandName = $event->getCommand()?->getName();
+        $commandName = $event->getCommand() ? $event->getCommand()->getName() : null;
         $input = $event->getInput();
 
         if ($input instanceof \Stringable) {

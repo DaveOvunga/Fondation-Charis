@@ -41,7 +41,7 @@ class ExpirationCommand extends Command
     /**
      * {@inheritDoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln([
             '<info>Cleaning server resources</info>',
@@ -71,6 +71,6 @@ class ExpirationCommand extends Command
 
         $output->writeln('');
 
-        return Command::SUCCESS;
+        return 0;
     }
 }
