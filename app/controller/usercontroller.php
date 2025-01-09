@@ -16,10 +16,10 @@ class UserController extends Controller{
     public function settings(){
         if (!isset($_SESSION['user'])) {
             $user = $this->userModel->find($_SESSION['user_id']);
-            View::Render('formation/Settings',$user);
+            View::Render('E-learning/Settings',$user);
             exit;
         }
-        View::Render('formation/login');
+        View::Render('E-learning/login');
     }
 }
 

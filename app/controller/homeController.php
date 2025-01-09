@@ -19,7 +19,7 @@ class HomeController extends Controller{
             'enrolled' => $coursesEnroll,
             'not_enrolled' => $coursesNotEnroll,
         ];
-        View::render('formation/home', $courses);
+        View::render('E-learning/home', $courses);
     }
 
     public function home(){

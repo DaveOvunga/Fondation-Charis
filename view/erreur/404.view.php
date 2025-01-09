@@ -54,7 +54,7 @@
                 </div>
                 <h2>Error 404 : Page Not Found</h2>
                 <p>La page que vous recherchez est temporairement indisponible.</p>
-                <a href="<?= APP_URL?>" class="btn default-btn">Retour à la page d'accueil</a>
+                <a href="../../index.html" class="btn default-btn">Retour à la page d'accueil</a>
             </div>
         </div>
         <!--End error area-->

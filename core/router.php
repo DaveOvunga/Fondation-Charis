@@ -70,6 +70,6 @@ class Router {
         // Handle 404
         header("HTTP/1.0 404 Not Found");
             View::render('erreur/404');
-    }
+    } 
 }
 ?>

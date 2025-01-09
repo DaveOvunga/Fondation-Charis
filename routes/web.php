@@ -1,38 +1,38 @@
 <?php 
 
-use App\Core\Router;
-use App\Controller\AuthController;
-use App\Controller\HomeController;
-use App\Controller\CourseController;
-use App\Controller\UserController;
+use app\Core\Router;
+use app\controller\Authcontroller;
+use app\controller\Homecontroller;
+use app\controller\Coursecontroller;
+use app\controller\Usercontroller;
 
 // HOME
-Router::get('/formation', [new HomeController(), 'index']);
+Router::get('/E-learning', [new Homecontroller(), 'index']);
 
 // AUTH
-Router::get('/login', [new AuthController(), 'login']);
-Router::post('/login', [new AuthController(), 'login']);
-Router::get('/register', [new AuthController(), 'register']);
-Router::post('/register', [new AuthController(), 'register']);
-Router::get('/logout', [new AuthController(), 'logout']);
+Router::get('/login', [new Authcontroller(), 'login']);
+Router::post('/login', [new Authcontroller(), 'login']);
+Router::get('/register', [new Authcontroller(), 'register']);
+Router::post('/register', [new Authcontroller(), 'register']);
+Router::get('/logout', [new Authcontroller(), 'logout']);
 
 // COURSES
-Router::get('formation/course/{id}', [
-    new CourseController(),
+Router::get('E-learning/course/{id}', [
+    new Coursecontroller(),
     "courseDetail" // Ensure this returns a response
 ]);
-Router::get('formation/course/{id}/video', [
-    new CourseController(),
+Router::get('E-learning/course/{id}/video', [
+    new Coursecontroller(),
     "video" // Ensure this returns a response
 ]);
-Router::post('/formation/chaptercomplete', [
-    new CourseController(),
+Router::post('/E-learning/chaptercomplete', [
+    new Coursecontroller(),
     "chapterComplete" // Ensure this returns a response
 ]);
 
 
 // USER
-Router::get('formation/Settings', [new UserController(), 'settings']);
+Router::get('E-learning/Settings', [new Usercontroller(), 'settings']);
 
 
 

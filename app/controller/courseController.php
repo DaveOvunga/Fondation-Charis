@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller;
+namespace app\Controller;
 
-use App\Core\View;
-use App\core\Controller;
-use App\core\Helper;
-use App\Model\Chapter;
-use App\Model\CompleteChapter;
-use App\Model\Course;
-use App\Model\Enrollment;
+use app\Core\View;
+use app\core\Controller;
+use app\core\Helper;
+use app\model\Chapter;
+use app\model\CompleteChapter;
+use app\model\Course;
+use app\model\Enrollment;
 
 class CourseController extends Controller
 {
@@ -59,7 +59,7 @@ class CourseController extends Controller
                     "courseDetail" => $courseDetail
                 ];
 
-                View::Render('formation/courseDetail',$courseDetail);
+                View::Render('E-learning/courseDetail',$courseDetail);
                 exit;
             }
         }
@@ -94,7 +94,7 @@ class CourseController extends Controller
             $ChapterDetail = $this->chapterModel->getChapterById($data2);
 
             if($ChapterDetail){
-                View::Render('formation/video',$ChapterDetail);
+                View::Render('E-learning/video',$ChapterDetail);
                 exit;
             }
         }

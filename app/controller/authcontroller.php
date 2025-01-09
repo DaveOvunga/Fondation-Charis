@@ -14,7 +14,7 @@ class AuthController extends Controller{
 
     public function register() {
         if (isset($_SESSION['user'])) {
-            View::redirect('formation');
+            View::redirect('E-learning');
             exit;
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,13 +33,13 @@ class AuthController extends Controller{
             }
         }
         else{
-            View::render('formation/register');
+            View::render('E-learning/register');
         }
     }
 
     public function login() {
         if (isset($_SESSION['user'])) {
-            View::redirect('formation');
+            View::redirect('E-learning');
             exit;
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -55,14 +55,14 @@ class AuthController extends Controller{
             if ($this->userModel->login($data)) {
                 $_SESSION['user'] = $username;
                 $_SESSION['user_id'] = $this->userModel->getId($username);
-                $this->sendJsonResponse(true, 'login successful.', 'formation'); // Include redirect URL
+                $this->sendJsonResponse(true, 'login successful.', 'E-learning'); // Include redirect URL
                 exit;
             } else {
                 $this->sendJsonResponse(false, 'Invalid credentials.');
             }
         }
         else{
-            View::render('formation/login');
+            View::render('E-learning/login');
         }
     }
 
