@@ -1,0 +1,130 @@
+'''Erreurs lors de la tentative de connexion
+
+Dans ce système de connexion, plusieurs erreurs peuvent survenir pendant que l'utilisateur tente de se connecter. Voici une liste des erreurs possibles et des messages associés qui peuvent être renvoyés à l'utilisateur ou enregistrés dans les logs.
+
+1. Nom d'utilisateur ou mot de passe incorrects
+
+Lorsque l'utilisateur saisit un nom d'utilisateur ou un mot de passe incorrect, un message d'erreur est affiché pour l'informer.
+
+- Message d'erreur possible:
+  - "Nom d'utilisateur ou mot de passe incorrect."
+  - "Les informations d'identification sont incorrectes."
+  - "Nom d'utilisateur ou mot de passe non valide. Veuillez réessayer."
+
+Cause : Le nom d'utilisateur ou le mot de passe fourni ne correspond à aucun compte enregistré dans la base de données.
+
+2. Compte verrouillé ou suspendu
+
+Si un utilisateur dépasse le nombre de tentatives de connexion autorisées ou si son compte est suspendu, l'accès sera temporairement bloqué.
+
+- Message d'erreur possible:
+  - "Votre compte a été verrouillé en raison de tentatives de connexion infructueuses. Veuillez réessayer dans [X] minutes."
+  - "Votre compte est suspendu. Veuillez contacter le support."
+  - "Votre compte est temporairement bloqué. Veuillez vérifier votre email pour plus d'informations."
+
+Cause : Un certain nombre de tentatives de connexion incorrectes a été atteint ou le compte a été suspendu manuellement par un administrateur.
+
+3. Compte inexistant
+
+Si l'utilisateur tente de se connecter avec un nom d'utilisateur qui n'existe pas dans la base de données.
+
+- Message d'erreur possible:
+  - "Ce nom d'utilisateur n'existe pas."
+  - "Aucun utilisateur trouvé avec ce nom d'utilisateur."
+  - "L'utilisateur que vous avez saisi n'existe pas."
+
+Cause : Le nom d'utilisateur saisi n'existe pas dans la base de données.
+
+4. Tentatives de connexion excessives (Brute force)
+
+Lorsqu'un utilisateur tente de se connecter de manière excessive avec des informations incorrectes, le système peut limiter les tentatives.
+
+- Message d'erreur possible:
+  - "Vous avez atteint le nombre maximum de tentatives de connexion. Veuillez patienter [X] minutes avant de réessayer."
+  - "Trop de tentatives de connexion échouées. Votre compte est temporairement bloqué."
+  - "Nous avons détecté trop de tentatives infructueuses. Veuillez essayer plus tard."
+
+Cause : L'utilisateur a effectué trop de tentatives infructueuses, ce qui peut entraîner un blocage temporaire du compte pour protéger contre les attaques par brute force.
+
+5. Mot de passe trop court ou faible
+
+Si le mot de passe que l'utilisateur tente de définir ou de changer est trop court ou ne respecte pas les critères de sécurité.
+
+- Message d'erreur possible:
+  - "Le mot de passe doit contenir au moins 8 caractères."
+  - "Le mot de passe doit inclure au moins une lettre majuscule, une lettre minuscule et un chiffre."
+  - "Le mot de passe est trop faible. Veuillez en choisir un plus sécurisé."
+
+Cause : Le mot de passe ne respecte pas la politique de sécurité de l'application.
+
+6. Mot de passe oublié
+
+Si l'utilisateur a oublié son mot de passe et souhaite le réinitialiser.
+
+- Message d'erreur possible:
+  - "Mot de passe oublié ? Cliquez ici pour le réinitialiser."
+  - "Si vous avez oublié votre mot de passe, suivez les instructions envoyées à votre adresse email."
+
+Cause : L'utilisateur a oublié son mot de passe et demande une réinitialisation.
+
+7. Session expirée
+
+Si l'utilisateur reste inactif trop longtemps et que sa session expire.
+
+- Message d'erreur possible:
+  - "Votre session a expiré. Veuillez vous reconnecter."
+  - "Vous avez été déconnecté en raison d'une période d'inactivité."
+
+Cause : La session de l'utilisateur a expiré après une période d'inactivité.
+
+8. Problème interne ou erreur de serveur
+
+Si une erreur imprévue se produit côté serveur, empêchant le traitement de la demande.
+
+- Message d'erreur possible:
+  - "Désolé, une erreur interne s'est produite. Veuillez réessayer plus tard."
+  - "Une erreur de serveur est survenue. Veuillez réessayer plus tard."
+
+Cause : Problème interne côté serveur (ex. : erreur de base de données, serveur non disponible).
+
+9. Accès interdit (permissions insuffisantes)
+
+Lorsque l'utilisateur essaie d'accéder à une ressource ou une page protégée sans avoir les permissions nécessaires.
+
+- Message d'erreur possible:
+  - "Vous n'avez pas les autorisations nécessaires pour accéder à cette page."
+  - "Accès refusé. Vous devez être connecté avec un compte ayant des privilèges suffisants."
+
+Cause : L'utilisateur n'a pas les droits nécessaires pour accéder à la ressource demandée.
+
+10. Email ou numéro de téléphone déjà utilisé
+
+Lorsque l'utilisateur tente de créer un compte ou de modifier son email ou numéro de téléphone, mais qu'il est déjà utilisé par un autre utilisateur.
+
+- Message d'erreur possible:
+  - "Ce nom d'utilisateur ou cette adresse email est déjà utilisé."
+  - "Ce numéro de téléphone est déjà enregistré dans notre système."
+
+Cause : L'adresse email ou le numéro de téléphone saisi est déjà lié à un autre compte utilisateur.
+
+11. Problème de connexion à la base de données
+
+Si une erreur se produit lors de la tentative de connexion à la base de données.
+
+- Message d'erreur possible:
+  - "Impossible de se connecter à la base de données. Veuillez réessayer plus tard."
+  - "Erreur de connexion au serveur. Nous rencontrons actuellement des problèmes techniques."
+
+Cause : Impossible d'établir une connexion avec la base de données, généralement à cause de problèmes de serveur ou de configuration.
+
+12. Code de vérification incorrect ou expiré
+
+Si l'utilisateur tente de soumettre un code de vérification qui est incorrect ou a expiré.
+
+- Message d'erreur possible:
+  - "Le code de vérification est incorrect. Veuillez vérifier votre code et réessayer."
+  - "Le code de vérification a expiré. Veuillez demander un nouveau code."
+
+Cause : Le code de vérification est invalide ou a expiré (par exemple, lors d'un processus de vérification par email ou SMS).
+
+

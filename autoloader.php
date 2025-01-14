@@ -45,6 +45,7 @@ foreach (glob( __DIR__ ."/app/config/*.php") as $filename) {
 foreach (glob( __DIR__ ."/core/*.php") as $filename) {
     require $filename;
 }
+require 'vendor/autoload.php'; // Load Composer autoload
 function myAutoloader($className) {
     // Define the base directory for the application
     $baseDir = __DIR__ . '/';

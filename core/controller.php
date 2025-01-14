@@ -16,8 +16,12 @@ abstract class Controller
     
     public function sendJsonResponse($success, $message, $redirect = null) {
         header('Content-Type: application/json');
-        echo json_encode(['success' => $success, 'message' => $message, 'redirect' => './'.$redirect]);
-        exit; // Ensure no further output is sent
+        if ($redirect) {
+            echo json_encode(['success' => $success, 'message' => $message, 'redirect' => './'.$redirect]);
+        } else {
+            echo json_encode(['success' => $success, 'message' => $message, 'redirect' => '']);
+        }
+        exit;  // Ensure no further output is sent
     }
 }
 ?>

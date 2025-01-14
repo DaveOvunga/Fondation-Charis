@@ -20,7 +20,7 @@
                 <!-- Course Cards List -->
                 <div class="row justify-content-center" id="courseList">                    
                     <!-- Course Cards -->
-                    <div class="card container-fluid border-white bg-dark text-white shadow-lg px-0">
+                    <div class="card container-fluid border-white bg-dark text-white shadow-lg px-0 col-lg-9">
                         <div class="mt-3 px-4">
                             <div>
                                 <nav aria-label="breadcrumb ">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="card-body p-0">
                             <div class="iframe-container border-0">
-                                <iframe class="border-0 bg-info" id="vimeo-iframe" src="https://player.vimeo.com/video/<?= basename(htmlspecialchars($data['video_url'])) ?>" allowfullscreen></iframe>
+                                <iframe class="border-0 bg-info rounded-bottom" id="vimeo-iframe" src="https://player.vimeo.com/video/<?= basename(htmlspecialchars($data['video_url'])) ?>" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('#nextChapBtn').on('click', function(event) {
+            $('#nextChapBtn').on('click', function(event) { 
                 event.preventDefault(); // Prevent default form submission
 
                 $.ajax({

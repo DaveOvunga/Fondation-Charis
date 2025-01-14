@@ -1,5 +1,6 @@
 {
     "require": {
-        "vimeo/vimeo-api": "*"
+        "vimeo/vimeo-api": "*",
+        "phpmailer/phpmailer": "^6.9"
     }
 }

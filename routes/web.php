@@ -7,14 +7,14 @@ use app\controller\Coursecontroller;
 use app\controller\Usercontroller;
 
 // HOME
-Router::get('/E-learning', [new Homecontroller(), 'index']);
+Router::get('E-learning/courses', [new Homecontroller(), 'index']);
 
 // AUTH
 Router::get('/login', [new Authcontroller(), 'login']);
 Router::post('/login', [new Authcontroller(), 'login']);
 Router::get('/register', [new Authcontroller(), 'register']);
 Router::post('/register', [new Authcontroller(), 'register']);
-Router::get('/logout', [new Authcontroller(), 'logout']);
+Router::post('/logout', [new Authcontroller(), 'logout']);
 
 // COURSES
 Router::get('E-learning/course/{id}', [

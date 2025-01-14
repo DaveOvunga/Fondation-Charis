@@ -47,33 +47,24 @@ $courses = [
 </head>
 <body>
 
-    <!-- Button to start the first course -->
-    <div class="container mt-5">
-        <button id="startCourseBtn" class="btn btn-primary">Start First Course</button>
+<div class="dropdown open">
+    <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="triggerId"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+    >
+        Dropdown Button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="triggerId">
+        <button class="dropdown-item" href="#">Action</button>
+        <button class="dropdown-item disabled" href="#">
+            Disabled action
+        </button>
     </div>
-
-    <!-- Modal -->
-    <div id="courseModal" class="modal fade" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="courseModalLabel" class="modal-title">Course</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h2 id="courseName"></h2>
-                    <p id="courseDescription"></p>
-                    <div class="iframe-container border rounded shadow-sm">
-                        <iframe id="courseVideo" class="w-100 rounded" src="" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="nextCourseBtn" class="btn btn-success" style="display:none;">Next Course</button>
-                    <button id="closeModalBtn" class="btn btn-secondary">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
     <!-- Vimeo Player API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
