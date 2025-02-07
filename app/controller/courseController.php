@@ -63,7 +63,7 @@ class CourseController extends Controller
                 exit;
             }
         }
-        View::Render('/erreur/404');
+        View::redirect('login');
     }
     
     public function video($params)
@@ -94,11 +94,11 @@ class CourseController extends Controller
             $ChapterDetail = $this->chapterModel->getChapterById($data2);
 
             if($ChapterDetail){
-                View::Render('E-learning/video',$ChapterDetail,$course_id);
+                View::Render('E-learning/video',$ChapterDetail);
                 exit;
             }
         }
-        View::Render('/erreur/404');
+        View::redirect('login');
     }
 
     public function chapterComplete(){
