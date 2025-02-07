@@ -94,7 +94,7 @@ class CourseController extends Controller
             $ChapterDetail = $this->chapterModel->getChapterById($data2);
 
             if($ChapterDetail){
-                View::Render('E-learning/video',$ChapterDetail);
+                View::Render('E-learning/video',$ChapterDetail,$course_id);
                 exit;
             }
         }

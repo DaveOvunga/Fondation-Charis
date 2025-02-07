@@ -80,5 +80,16 @@ class User extends Model{
             ]
         ))->fetchColumn();
     }
+    public function requestLoginAttemps($email)
+    {
+        $hourAgo = time() - 60*60;
+        $query = 'SELECT COUNT(loginattempts.id) FROM '. static::$table . ' LEFT JOIN loginattempts ON users.id = user AND timestamp>:time_stamp WHERE email=:email GROUP BY users.id';
+        // Prepare data for binding
+        $data = [
+            ':email' => $email,
+            ':time_stamp' => $hourAgo
+        ];
+        return DB::query($query, $data)->fetch();
+    }
 }
 ?>

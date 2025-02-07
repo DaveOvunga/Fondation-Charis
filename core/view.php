@@ -7,8 +7,10 @@ class View {
         $filename = "./view/" . $name . ".view.php";
 
         if (file_exists($filename)) {
-            if (!empty($data)) {
-                extract($data);
+            foreach ($data as $dataArray) {
+                if (!empty($dataArray)) {
+                    extract($dataArray);
+                }
             }
             require $filename;
         } else {

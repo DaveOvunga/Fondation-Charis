@@ -432,7 +432,7 @@ h1{
         </form>
 
         <div class="register-link">
-            Pas encore de compte? <a href="register.view.php">S'inscrire</a>
+            Pas encore de compte? <a href="register">S'inscrire</a>
         </div>
     </div>
 </div>
@@ -459,7 +459,8 @@ h1{
                     },
                     success: function(response) {
                         if (response.success && response.redirect) {
-                            $('#responseMessage').html('<div class="alert alert-success">' + response.message + '</div>');
+                            
+                            showMessage(response.message,'error');
                             // Redirect to the login page after a short delay or immediately
                             setTimeout(function() {
                                 window.location.href = response.redirect; // Redirect to the login page
@@ -470,10 +471,11 @@ h1{
                             var errorsHtml = '';
                             $.each(response.message, function(index, error) 
                             {
-                                errorsHtml += '<div class="alert alert-danger">' + error + '</div>';
+                                errorsHtml += '' + error + '';
                             });
-                            // Update the HTML content of the responseMessage element with errors
-                            $('#responseMessage').html(errorsHtml);
+                            
+                            
+                            showMessage(errorsHtml,'error');
                         }
                     },
                     error: function(xhr, status, error) {
@@ -535,24 +537,7 @@ function showMessage(message, type) {
 }
 
 // Gestion du formulaire
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
 
-    // Exemple de validation basique
-    if (!email || !password) {
-        showMessage('Veuillez remplir tous les champs', 'error');
-        return;
-    }
-
-    // Simulation d'une connexion (à adapter selon vos besoins)
-    if (email === "test@test.com" && password === "test123") {
-        showMessage('Connexion réussie !', 'success');
-    } else {
-        showMessage('Email ou mot de passe incorrect', 'error');
-    }
-});
 
 function togglePassword(element) {
     const passwordInput = document.getElementById('password');

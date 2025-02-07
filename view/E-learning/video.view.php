@@ -73,8 +73,8 @@
     <div class="mb-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent">
-                <li class="breadcrumb-item"><a href="<?=APP_URL?>/E-learning" class="text-decoration-none">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Cours</a></li>
+                <li class="breadcrumb-item"><a href="<?=APP_URL?>/E-learning/courses" class="text-decoration-none">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="<?=APP_URL?>/E-learning/course/<?= Helper::urlSafeEncode($course_id) ?>" class="text-decoration-none">Cours</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><?php echo htmlspecialchars($data['course_name']); ?></li>
             </ol>
         </nav>

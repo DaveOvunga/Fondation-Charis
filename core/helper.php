@@ -106,7 +106,28 @@ class Helper {
         // Encode the combined data using base64 encoding
         return base64_encode($combinedData);
     }
+    public static function encode($data) {
+        $key = hash('sha256', SECRET_KEY, true);  // Generate 256-bit key
+        $iv = substr(hash('sha256', SECRET_IV), 0, 16);  // Generate 128-bit IV (first 16 bytes)
+        
+        // Encrypt the data using AES-256-CBC
+        $encryptedData = openssl_encrypt($data, 'AES-256-CBC', $key, 0, $iv);
+        
+        // Encode the encrypted data to base64 to make it URL-safe
+        return base64_encode($encryptedData);
+    }
     
+    public static function decode($encodedData) {
+        $key = hash('sha256', SECRET_KEY, true);  // Generate 256-bit key
+        $iv = substr(hash('sha256', SECRET_IV), 0, 16);  // Generate 128-bit IV (first 16 bytes)
+        
+        // Decode the data from base64
+        $decodedData = base64_decode($encodedData);
+        
+        // Decrypt the data using AES-256-CBC
+        return openssl_decrypt($decodedData, 'AES-256-CBC', $key, 0, $iv);
+    }
+
     public static function decodeIds($encodedData)
     {
         // Decode the base64 encoded string
