@@ -492,7 +492,7 @@ h1{
         </form>
 
         <div class="register-link">
-            Déjà inscrit? <a href="login.view.php">Se connecter</a>
+            Déjà inscrit? <a href="login">Se connecter</a>
         </div>
     </div>
 </div>

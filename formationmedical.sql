@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 08 fév. 2025 à 01:21
+-- Généré le : sam. 28 déc. 2024 à 12:20
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -121,26 +121,6 @@ INSERT INTO `enrollments` (`id`, `user_id`, `course_id`, `enrolled_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `loginattempts`
---
-
-CREATE TABLE `loginattempts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user` bigint(20) UNSIGNED DEFAULT NULL,
-  `ip` varchar(255) DEFAULT NULL,
-  `timestamp` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `loginattempts`
---
-
-INSERT INTO `loginattempts` (`id`, `user`, `ip`, `timestamp`) VALUES
-(80, 88, '::1', 1738973694);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `rating`
 --
 
@@ -163,29 +143,6 @@ INSERT INTO `rating` (`id`, `user_id`, `course_id`, `rating`, `comment`, `create
 -- --------------------------------------------------------
 
 --
--- Structure de la table `requests`
---
-
-CREATE TABLE `requests` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user` bigint(20) UNSIGNED DEFAULT NULL,
-  `hash` varchar(255) DEFAULT NULL,
-  `timestamp` int(10) UNSIGNED DEFAULT NULL,
-  `type` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `requests`
---
-
-INSERT INTO `requests` (`id`, `user`, `hash`, `timestamp`, `type`) VALUES
-(68, 85, '95920', 1736983321, 0),
-(69, 86, '87390', 1736983541, 0),
-(70, 87, '44151', 1738972022, 0);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `users`
 --
 
@@ -195,30 +152,27 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `role` enum('user','instructor','admin') NOT NULL DEFAULT 'user',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `verified` tinyint(1) NOT NULL DEFAULT 0
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `created_at`, `verified`) VALUES
-(1, 'AlexKing', '$2y$10$LVN3ZY6FQlq6BBxWsMwCOO0OoBI1lhASeogrR9Yd9.Mo0osZic2hG', 'Alex@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(2, 'JohnKing', '1234567', 'john.doe@example.com', 'user', '2024-12-21 01:24:05', 0),
-(3, 'DoeKing', '1234567', 'john.doe2@example.com', 'user', '2024-12-21 01:24:05', 0),
-(5, 'doe3King', '$2y$10$q1FlSTB9nn.N4ClIrh0ZJOt43WcD6BFUOU5Lox.EJg20syQiCEAQu', 'john.doe3@example.com', 'user', '2024-12-21 01:24:05', 0),
-(6, 'JaneQueen', '$2y$10$NjJkVRZnBJdJQ7bysvaMv..2SvnmaTspJ4D/WSgnTOz2TBi7Sx1mW', 'jane@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(7, 'Doudou', '$2y$10$sOD8o1MAtadKKg51xrW3C.yV/p6.C0hj1GRAoWpPhdwZGfiEDJt9.', 'doudou@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(8, 'jane2', '$2y$10$HSP/MHBZz2yVVpyvUjg8D.pNeS2AuaHtY/uaMvxDfhrpKVYrbIG3e', 'jane2@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(9, 'jane3', '$2y$10$fFqsI2M7CPo4jN7Aq6SLne5cyflPIeYDN42rxN8PmAP4SFMjUBPTa', 'jane3@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(10, 'jane0', '$2y$10$XkenJ/j9J.jyLCdpdtO7ouu3hTy9yly/rIe/0tmrqXuLju96quVce', 'jane0@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(11, 'jane8', '$2y$10$0lx9fy0oxEuWnUqZCGPpF.w/1XH2/n9T5H3NN5FogTpvF5jtpG2tq', 'jane8@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(12, 'AxelKing', '$2y$10$40wMUvJLj5BPQs9a8FHA5uXHnW6r1SijeEegDefUzvo4oL/295Ly.', 'Axel@gmail.com', 'user', '2024-12-21 01:24:05', 0),
-(13, '', '$2y$10$k3ksEvMaURK8BoXKGs/LV.Wq88pA7w5K02sOQc4FFZ.W4xRBEXqGS', 'Test@gmail.com', 'user', '2024-12-27 13:32:54', 0),
-(85, 'AxelKing', '$2y$10$UQNASgivgwDvdnsrpAZRieOHkXl1X8LkUvjti/tFfVSVQtG.S0zpG', 'shongoaxel58@gmail.com', 'user', '2025-01-15 23:22:00', 0),
-(86, 'AxelKing', '$2y$10$D1mu4YgehTU9gLOtOqaRzuC0dmcT1v7BLh.x2TN8RFdkz3QggkwvK', 'davepseudo13@gmail.com', 'user', '2025-01-15 23:25:41', 0),
-(89, 'Saxel', '$2y$10$vCAP7o4FBbWw2wgWi9WDQu0uGjSATQc2LyWmND98BiAeWHJwzLeVO', 'shongoaxel580@gmail.com', 'user', '2025-02-08 00:15:45', 1);
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `created_at`) VALUES
+(1, 'AlexKing', '$2y$10$LVN3ZY6FQlq6BBxWsMwCOO0OoBI1lhASeogrR9Yd9.Mo0osZic2hG', 'Alex@gmail.com', 'user', '2024-12-21 01:24:05'),
+(2, 'JohnKing', '1234567', 'john.doe@example.com', 'user', '2024-12-21 01:24:05'),
+(3, 'DoeKing', '1234567', 'john.doe2@example.com', 'user', '2024-12-21 01:24:05'),
+(4, 'Doe2King', '$2y$10$8DEuCXx77ZTLeEt/InaRdeJD/7AHEkAcNZ.jYdY1x/Z2bY91bAHcO', 'shongoaxel580@gmail.com', 'user', '2024-12-21 01:24:05'),
+(5, 'doe3King', '$2y$10$q1FlSTB9nn.N4ClIrh0ZJOt43WcD6BFUOU5Lox.EJg20syQiCEAQu', 'john.doe3@example.com', 'user', '2024-12-21 01:24:05'),
+(6, 'JaneQueen', '$2y$10$NjJkVRZnBJdJQ7bysvaMv..2SvnmaTspJ4D/WSgnTOz2TBi7Sx1mW', 'jane@gmail.com', 'user', '2024-12-21 01:24:05'),
+(7, 'Doudou', '$2y$10$sOD8o1MAtadKKg51xrW3C.yV/p6.C0hj1GRAoWpPhdwZGfiEDJt9.', 'doudou@gmail.com', 'user', '2024-12-21 01:24:05'),
+(8, 'jane2', '$2y$10$HSP/MHBZz2yVVpyvUjg8D.pNeS2AuaHtY/uaMvxDfhrpKVYrbIG3e', 'jane2@gmail.com', 'user', '2024-12-21 01:24:05'),
+(9, 'jane3', '$2y$10$fFqsI2M7CPo4jN7Aq6SLne5cyflPIeYDN42rxN8PmAP4SFMjUBPTa', 'jane3@gmail.com', 'user', '2024-12-21 01:24:05'),
+(10, 'jane0', '$2y$10$XkenJ/j9J.jyLCdpdtO7ouu3hTy9yly/rIe/0tmrqXuLju96quVce', 'jane0@gmail.com', 'user', '2024-12-21 01:24:05'),
+(11, 'jane8', '$2y$10$0lx9fy0oxEuWnUqZCGPpF.w/1XH2/n9T5H3NN5FogTpvF5jtpG2tq', 'jane8@gmail.com', 'user', '2024-12-21 01:24:05'),
+(12, 'AxelKing', '$2y$10$40wMUvJLj5BPQs9a8FHA5uXHnW6r1SijeEegDefUzvo4oL/295Ly.', 'Axel@gmail.com', 'user', '2024-12-21 01:24:05'),
+(13, '', '$2y$10$k3ksEvMaURK8BoXKGs/LV.Wq88pA7w5K02sOQc4FFZ.W4xRBEXqGS', 'Test@gmail.com', 'user', '2024-12-27 13:32:54');
 
 -- --------------------------------------------------------
 
@@ -275,13 +229,6 @@ ALTER TABLE `enrollments`
   ADD KEY `course_id` (`course_id`);
 
 --
--- Index pour la table `loginattempts`
---
-ALTER TABLE `loginattempts`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
-
---
 -- Index pour la table `rating`
 --
 ALTER TABLE `rating`
@@ -290,17 +237,11 @@ ALTER TABLE `rating`
   ADD KEY `course_id` (`course_id`);
 
 --
--- Index pour la table `requests`
---
-ALTER TABLE `requests`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
-
---
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -337,13 +278,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT pour la table `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT pour la table `loginattempts`
---
-ALTER TABLE `loginattempts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `rating`
@@ -352,16 +287,10 @@ ALTER TABLE `rating`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `requests`
---
-ALTER TABLE `requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
-
---
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Contraintes pour les tables déchargées
