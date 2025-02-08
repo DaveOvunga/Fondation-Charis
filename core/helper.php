@@ -169,7 +169,7 @@ class Helper {
         return random_int($min, $max); // Securely generate a random integer
     }
 
-    public static function sendVerificationEmail($to, $toName, $subj, $msg) {
+    public static function sendVerificationEmail($to, $toName, $subj, $msg,$link) {
         $mail = new PHPMailer(true);
     
         try {
@@ -317,6 +317,7 @@ class Helper {
                             <div class="verification-container">
                                 <p class="verification-code" id="verification-code">'.$msg.'</p>
                             </div>
+                            <a href="'.$link.'">Validate email</a>
                             <p>If you didn’t request this, please ignore this email.</p>
                         </main>
                         <footer class="email-footer">

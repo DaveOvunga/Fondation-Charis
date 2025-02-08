@@ -460,7 +460,7 @@ h1{
                     success: function(response) {
                         if (response.success && response.redirect) {
                             
-                            showMessage(response.message,'error');
+                            showMessage(response.message,'success');
                             // Redirect to the login page after a short delay or immediately
                             setTimeout(function() {
                                 window.location.href = response.redirect; // Redirect to the login page

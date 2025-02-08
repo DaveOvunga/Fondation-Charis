@@ -32,5 +32,16 @@ class LoginAttemps extends Model
         ))->fetch();
     }
 
+    public function deleteAttemps($id)
+    {
+        $query = "DELETE FROM " . static::$table . " WHERE user=:id ";
+        return (DB::query(
+            $query,
+            [
+                'id' => $id
+            ]
+        ));
+    }
+
     
 }

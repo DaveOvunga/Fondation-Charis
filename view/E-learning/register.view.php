@@ -523,7 +523,7 @@ h1{
                     },
                     success: function(response) {
                         if (response.success) {
-                            $('#responseMessage').html('<div class="alert alert-success">' + response.message + '</div>');
+                            showMessage(response.message,'success');
                             // Redirect to the login page after a short delay or immediately
                             if(response.redirect != ""){
                                 setTimeout(function() {
@@ -538,10 +538,10 @@ h1{
                             var errorsHtml = '';
                             $.each(response.message, function(index, error) 
                             {
-                                errorsHtml += '<div class="alert alert-danger">' + error + '</div>';
+                                errorsHtml += '' + error + '';
                             });
                             // Update the HTML content of the responseMessage element with errors
-                            $('#responseMessage').html(errorsHtml);
+                            showMessage(errorsHtml,'error');
                         }
                     }
 ,
@@ -602,26 +602,6 @@ function showMessage(message, type) {
     messageElement.className = 'mt-3 mb-3'; // Réinitialise les classes
     messageElement.classList.add(type, 'show');
 }
-
-// Gestion du formulaire
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    // Exemple de validation basique
-    if (!email || !password) {
-        showMessage('Veuillez remplir tous les champs', 'error');
-        return;
-    }
-
-    // Simulation d'une connexion (à adapter selon vos besoins)
-    if (email === "test@test.com" && password === "test123") {
-        showMessage('Connexion réussie !', 'success');
-    } else {
-        showMessage('Email ou mot de passe incorrect', 'error');
-    }
-});
 
 function togglePassword(element) {
     const passwordInput = document.getElementById('password');

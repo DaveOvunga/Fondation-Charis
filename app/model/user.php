@@ -50,7 +50,7 @@ class User extends Model{
     }
 
     public function verifyEmail($id){
-        $query = "UPDATE " . static::$table . "SET verified=1 WHERE id = :id";
+        $query = "UPDATE " . static::$table . " SET verified=1 WHERE id = :id";
         return (DB::query(
             $query,
             [

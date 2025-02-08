@@ -90,8 +90,8 @@ class AuthController extends Controller{
                                         
 
                                         if ($reqId != -1) {
-                                            if ($this->helperModel->sendVerificationEmail($email, $user['username'], 'Email Verification', $verifyCode)) {
-                                                $this->sendJsonResponse(True, 'An Verification Email has been send. Please check your inbox.');
+                                            if ($this->helperModel->sendVerificationEmail($email, $user['username'], 'Email Verification', $verifyCode,'emailVerification/'.$this->helperModel->encode($user['id']).'')) {
+                                                $this->sendJsonResponse(True, 'An Verification Email has been send. Please check your inbox.','emailVerification/'.$this->helperModel->encode($user['id']).'');
                                                 exit;
                                             }
                                             else{
@@ -182,6 +182,7 @@ class AuthController extends Controller{
                                 if ($this->userModel->login($data)) {
                                     $_SESSION['user'] = $loginInfo['username'];
                                     $_SESSION['user_id'] = $this->userModel->getId($email);
+                                    $this->loginAttemps->deleteAttemps($userId);
                                     $this->sendJsonResponse(true, 'Connexion réussie', 'E-learning/courses'); // Include redirect URL
                                     exit;
                                 } else {
@@ -217,21 +218,11 @@ class AuthController extends Controller{
             {
                 $errors[] = 'Échec de la demande';
             }
-            else{
-                if (!is_int($_POST['code'])) {
-                    $errors[] = "Échec de la demande, veuillez reessayer";
-                }
-            }
 
             // Code to validate the account
             if(!isset($_POST['verificationCode']) || $_POST['verificationCode'] == '')
             {
                 $errors[] = 'Veuillez entrer le code';
-            }
-            else{
-                if (!is_int($_POST['verificationCode'])) {
-                    $errors[] = "Code Invalide";
-                }
             }
 
             if(count($errors) == 0)
@@ -314,7 +305,7 @@ class AuthController extends Controller{
                                 $reqId = $this->requestModel->insertRequest($data);
 
                                 if ($reqId != -1) {
-                                    if ($this->helperModel->sendVerificationEmail($email, $user['username'], 'Email Verification', $verifyCode)) {
+                                    if ($this->helperModel->sendVerificationEmail($email, $user['username'], 'Email Verification', $verifyCode,'emailVerification/'.$_POST['code'].'')) {
                                         $this->sendJsonResponse(True, 'Un email de vérification a été envoyé. Veuillez vérifier votre boîte de réception email',null);
                                         exit;
                                     }
